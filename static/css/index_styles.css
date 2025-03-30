@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: #141414;
+}
+
+body > h1 {
+    color: #960709;
+}
+
+body > p {
+    color: #DA0000;
+    font-size: 14pt;
+}
+
+#username {
+    width: 25%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#username:focus {
+    border-color: #DA0000;
+    outline: none;
+}
+
+#movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    border: 1px solid #ddd;
+    background-color: #DFE2DB;
+    margin: 10px;
+    border-radius: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); 
+}
+
+.movie-card:hover h3,
+.movie-card:hover .description {
+    display: none;
+}
+
+.movie-card .rating {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    top: 100%;
+    left: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+.movie-card:hover .rating {
+    display: block;
+    opacity: 1;
+}
+
+.rated {
+    border: 2px solid #4CAF50;
+    background-color: #c8e6c9;
+}
+
+.rated h3, .rated .description {
+    color: #2e7d32;
+}
+
+.rated select {
+    font-weight: bold;
+    border: 2px solid #2e7d32;
+    background-color: #a5d6a7;
+}
+
+#submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-button:hover {
+    background-color: #80c084;
+}
