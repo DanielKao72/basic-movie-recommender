@@ -42,4 +42,16 @@ class Movie_Reviewer:
         with open(report, mode='w', newline='') as file:
             writer = csv.writer(file)
             writer.writerows(rows)
+            
+    def get_all_usernames(report="user_reviews_report.csv"):
+        """
+        Get all usernames from the report.
+        """
+        usernames = set()
+        with open(report, mode='r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if row[0] != "Username":
+                    usernames.add(row[0])
+        return list(usernames)
         
