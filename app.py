@@ -6,6 +6,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """
+    Display the main page.
+    """
     return render_template('index.html')
 
 @app.route('/recommendations')
