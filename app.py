@@ -50,5 +50,9 @@ def save_rating_movies():
     
     return jsonify({"message": "Rating received!"})
 
+@app.route('/api/usernames', methods=['GET'])
+def get_usernames_api():
+    return jsonify({"usernames": Movie_Reviewer.get_all_usernames()})
+
 if __name__ == '__main__':
     app.run(debug=True)
