@@ -88,9 +88,10 @@ body > p {
     background-color: #a5d6a7;
 }
 
-#submit-button {
+#submit-button, #recommend-button {
     background-color: #4CAF50;
     color: white;
+    margin: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -98,6 +99,6 @@ body > p {
     transition: background-color 0.3s ease;
 }
 
-#submit-button:hover {
+#submit-button:hover, #recommend-button:hover {
     background-color: #80c084;
 }

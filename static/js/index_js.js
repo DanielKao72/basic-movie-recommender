@@ -37,52 +37,41 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
 });
-
+   
 document.addEventListener("DOMContentLoaded", () => {
-    const submitButton = document.getElementById("submit-button");
-
-    if (submitButton) {
-        submitButton.addEventListener("click", () => {
-            const username = document.getElementById("username").value.trim();
-
-            if (!username) {
-                alert("Por favor, ingresa tu nombre de usuario antes de enviar las valoraciones.");
-                return; // Detiene la ejecución si el campo está vacío
-            }
-
-            const ratingElements = document.querySelectorAll(".rating");
-
-            const ratings = Array.from(ratingElements).map(select => 
-                select.value ? parseInt(select.value) : 0
-            );
-
-            console.log(`Usuario: ${username}`);
-            console.log("Valoraciones de las películas:", ratings);
+    document.getElementById("submit-button").addEventListener("click", async () => {
+        const username = document.getElementById("username").value.trim();
+    
+        if (!username) {
+            alert("Please enter your username before submitting the ratings.");
+            return;
+        }
+    
+        const ratingElements = document.querySelectorAll(".movie-card");
+        const ratings = Array.from(ratingElements).map(movieDiv => {
+            const title = movieDiv.querySelector("h3").innerText;
+            const rating = movieDiv.querySelector(".rating").value || 0;
+            return { title, rating: parseInt(rating) };
         });
-    } else {
-        console.error("No se encontró el botón de enviar.");
-    }
-});
-
-
-
-/*
-document.getElementById("submit-button").addEventListener("click", async () => {
-    const ratingElements = document.querySelectorAll(".rating");
-    const ratings = Array.from(ratingElements).map(select => select.value);
-
-    const response = await fetch("/api/rate_movies", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ ratings })
+    
+        try {
+            const response = await fetch("/api/rate_movies", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, ratings })
+            });
+    
+            if (response.ok) {
+                alert("Rates successfully submitted.");
+            } else {
+                alert("Unsuccessfully submitted.");
+            }
+        }
+        catch (error) {
+            console.error("Error submitting ratings:", error);
+            alert("Error submitting ratings. Please try again.");
+        }
     });
-
-    if (response.ok) {
-        alert("Calificaciones enviadas correctamente.");
-    } else {
-        alert("Error al enviar las calificaciones.");
-    }
 });
-*/
