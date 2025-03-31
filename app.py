@@ -8,6 +8,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/recommendations')
+def recommendations():
+    """
+    Display the recommendations page.
+    """
+    return render_template('recommendations.html')
+
 @app.route('/api/movies')
 def get_movies():
     """
