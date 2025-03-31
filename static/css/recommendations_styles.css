@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: #141414;
+}
+
+body > h1 {
+    color: #960709;
+}
+
+body > p {
+    color: #DA0000;
+    font-size: 14pt;
+}
+
+#username-select {
+    width: 25%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#get-recommendations-button {
+    background-color: #4CAF50;
+    color: white;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#get-recommendations-button:hover{
+    background-color: #80c084;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href=".\static\css\recommendations_styles.css">
+    <script src=".\static\js\recommendations_js.js"></script>
+</head>
+<body>
+    <h1>The following movies should like it</h1>
+    <p>Please select an username to see his recommendations</p>
+
+    <select id="username-select">
+        <option value="" disabled selected>Select a username</option>
+        <!-- Options will be dynamically generated here -->
+    </select>
+
+    <button id="get-recommendations-button">Get Recommendations</button>
+    <div id="recommendations-container">
+        <!-- Recommendations will be dynamically generated here -->
+    </div>
+</body>
+</html>
