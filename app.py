@@ -1,8 +1,11 @@
 from flask import Flask, render_template, jsonify, request
 from services.Content_Curator import Content_Curator
+from services.Recommender import Recommender
 from services.Movie_Reviewer import Movie_Reviewer
 
 app = Flask(__name__)
+
+recommender = Recommender()
 
 @app.route('/')
 def index():
@@ -53,6 +56,11 @@ def save_rating_movies():
 @app.route('/api/usernames', methods=['GET'])
 def get_usernames_api():
     return jsonify({"usernames": Movie_Reviewer.get_all_usernames()})
+
+@app.route('/recommend/<username>', methods=['GET'])
+def get_recommendations(username):
+    recommendations = recommender.recommend_movies(username)
+    return jsonify(recommendations)
 
 if __name__ == '__main__':
     app.run(debug=True)
